@@ -21,9 +21,9 @@
 
 
 ## Credits
-
+- [ ] tim
 ## 
-March 25, 2019 @ 3:20 Up and Running with Docker
+* **March 25, 2019 @ 3:20** Up and Running with Docker
 
 
 
