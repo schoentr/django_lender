@@ -4,7 +4,7 @@ from django.db import models
 class Book(models.Model):
     title = models.CharField(max_length=48)
     author = models.CharField(max_length=4096)
-    year = models.IntegerField(max_length=4)
+    year = models.IntegerField(4)
     # date_added =
     # last_borrowed = 
 
@@ -12,7 +12,7 @@ class Book(models.Model):
 
 
     STATES = [
-        ('available', 'Availabe'),
+        ('available', 'Available'),
         ('checked-out', 'Checked-Out'),
     ]
     status = models.CharField(choices=STATES, default='available', max_length=48)
