@@ -1,11 +1,14 @@
 from django.db import models
+from django.utils import timezone
+from django.dispatch import receiver
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Book(models.Model):
     title = models.CharField(max_length=48)
     author = models.CharField(max_length=4096)
     year = models.IntegerField()
-    date_added = models.DateField(auto_now_add=True,blank=True, null=True)
+    date_added = models.DateField(default=timezone.now)
     last_borrowed = models.DateTimeField(auto_now=True)
 
     STATES = [
