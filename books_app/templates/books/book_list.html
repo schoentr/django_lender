@@ -1,5 +1,5 @@
-{% extends base.html %}
 
+{% extends 'generic/base.html' %}
 {% block title %}
 Book List
 {% endblock title %}
@@ -7,7 +7,8 @@ Book List
 {% block content %}
 <div class="book_list">
 {% for book in books %}
-<h3><a href="{% url "book_detail" pk=book.id %}">{{ book.title }} ({{ book.status }})</a></h3>
+<h3><a href="{% url "book_detail" pk=book.id %}">
+    {{ book.title }} ({{ book.status }})</a></h3>
 {% endfor %}
 </div>
 {% endblock content %}
