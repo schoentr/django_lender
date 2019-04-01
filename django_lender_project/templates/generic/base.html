@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="{%static "css/normalize.css" %}">
+  <link rel="stylesheet" href="{%static "css/skeleton.css" %}">
+  <link rel="stylesheet" href="{%static "css/styles.css" %}">
+  <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+  <header>
+    <h1 id="book_lender_heading">Book Lender</h1>
+    {% if user.is_authenticated %}
+    <span id="user_heading">
+      <img id="user_image" src="{%static "assets/allie.jpg" %}">
+      <h6>Logged in as : <strong>{{ user.username }}</strong> </h3>
+      </span>  
+    {% endif %}
+    <nav>
+      <ul>
+        <li><a href="{% url "home" %}">Home</a></li>
+        {% if user.is_authenticated %}
+        <li><a href="{% url "book_list" %}">Book List</a></li>
+        {% if user.is_superuser %}
+        <li><a href="{% url "admin:index" %}">Admin</a></li>
+        {% endif%}
+        <li><a href=" {% url "logout" %}">Logout</a></li>
+        {% else %}
+        <li><a href=" {% url "django_registration_register" %}">Register</a></li>
+        <li><a href=" {% url "login" %}">Signin</a></li>  
+        {% endif %}
+      </ul>
+    </nav>
+  </header>
+  <main>
+    {% block content %}
+    <h3>No Content</h3>
+    {% endblock content%}
+  </main>
+  <footer></footer>
+</body>
+</html>

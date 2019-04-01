@@ -6,10 +6,12 @@ verify_ssl = true
 [dev-packages]
 autopep8 = "*"
 
+
 [packages]
 django = "*"
 psycopg2-binary = "*"
 pep8 = "*"
+django-registration = "*"
 
 [requires]
 python_version = "3.7"
