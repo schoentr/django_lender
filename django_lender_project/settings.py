@@ -128,6 +128,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+StatIC_ROOT = os.path.join(BASE_DIR,'static')
 
 #Django Registration Settings
 ACCOUNT_ACTIVATION_DAYS = 1

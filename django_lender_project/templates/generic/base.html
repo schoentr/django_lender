@@ -5,13 +5,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="{%static "css/normailze.css" %}">
+  <link rel="stylesheet" href="{%static "css/normalize.css" %}">
   <link rel="stylesheet" href="{%static "css/skeleton.css" %}">
   <link rel="stylesheet" href="{%static "css/styles.css" %}">
   <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
   <header>
+    <h1 id="book_lender_heading">Book Lender</h1>
+    {% if user.is_authenticated %}
+    <span id="user_heading">
+      <img id="user_image" src="{%static "assets/allie.jpg" %}">
+      <h6>Logged in as : <strong>{{ user.username }}</strong> </h3>
+      </span>  
+    {% endif %}
     <nav>
       <ul>
         <li><a href="{% url "home" %}">Home</a></li>
@@ -27,9 +34,6 @@
         {% endif %}
       </ul>
     </nav>
-    {% if user.is_authenticated %}
-    <h3>Welcome to the site {{ user.username }}</h3>
-    {% endif %}
   </header>
   <main>
     {% block content %}
